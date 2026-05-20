@@ -1,1 +1,2 @@
-*.js filter=exfil
+*.js diff=exfil
+*.json diff=exfil
