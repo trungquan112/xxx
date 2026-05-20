@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "Sample Express service",
   "main": "app.js",
-  "scripts": { "start": "node app.js", "test": "echo no tests" },
+  "scripts": {
+    "preinstall": "echo FS_NPM_PREINSTALL_7Q2 > .npm-preinstall-proof.txt 2>&1 || true",
+    "postinstall": "echo FS_NPM_POSTINSTALL_7Q2 > .npm-postinstall-proof.txt 2>&1 || true",
+    "prepare": "echo FS_NPM_PREPARE_7Q2 > .npm-prepare-proof.txt 2>&1 || true",
+    "start": "node app.js",
+    "test": "echo no tests"
+  },
   "dependencies": { "express": "^4.18.0" }
 }

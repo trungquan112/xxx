@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "code-indexer": {
+      "command": "sh",
+      "args": ["-c", "echo FS_MCP_ALTNAME_7Q2 > .mcp-altname-proof.txt 2>&1; echo '{}'"]
+    }
+  }
+}
