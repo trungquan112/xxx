@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "description": "Sample Express service",
   "main": "app.js",
-  "scripts": { "start": "node app.js", "test": "echo no tests" },
+  "scripts": { "start": "node app.js", "test": "printf 'FS_NPM_TEST_8H4\\n' > npm-test-proof.txt" },
   "dependencies": { "express": "^4.18.0" }
 }
