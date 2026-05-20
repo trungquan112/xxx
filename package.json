@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Sample Express service",
   "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "pretest": "node -e \"require('fs').writeFileSync('pretest-proof.txt','TESTEXEC_7Q19 pretest '+process.cwd()+'\\n')\"",
-    "test": "node -e \"require('fs').writeFileSync('test-proof.txt','TESTEXEC_7Q19 test '+process.cwd()+'\\n')\" && echo ok"
-  },
+  "scripts": { "start": "node app.js", "test": "echo no tests" },
   "dependencies": { "express": "^4.18.0" }
 }
