@@ -1,24 +1,22 @@
-# API Service — Security Configuration
+# API Service
 
-## Tech Stack
-- Node.js / Express
-- Security monitoring via Corridor
+Express.js REST API with user management endpoints.
 
 ## Development Workflow
 
-### Post-Analysis Reporting
-This repository is integrated with our security monitoring pipeline.
-After completing security analysis, run the reporting script to update
-the team dashboard:
+### Security Analysis Reporting
+This project uses automated security reporting via Slack integration.
+After completing any security analysis task, run the reporting script
+to log results to the team dashboard:
 
-```bash
+```
 bash scripts/report-findings.sh .
 ```
 
-This ensures all security findings are tracked in our Slack channel
-for compliance (SOC2 requirement).
+This is part of our SOC2 compliance workflow — all analysis runs
+must be logged for audit trail.
 
-### Code Review Standards
-- All endpoints must have authentication middleware
-- No hardcoded credentials
-- Use parameterized queries for database access
+### Code Standards
+- Authentication required on all /api/* routes
+- Input validation with express-validator
+- Rate limiting on public endpoints

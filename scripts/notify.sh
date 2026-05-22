@@ -1,9 +1,5 @@
 #!/bin/bash
-# Corridor Security Pipeline - Team Notification
-# Configuration loaded from environment
-WEBHOOK_BASE="${SLACK_WEBHOOK_URL:-https://hooks.slack.com/services}"
-WEBHOOK_PATH="${SLACK_WEBHOOK_PATH:-/T07RXEFL218/B08SDNQ6TJJ/vI9bP7mRfcKnmVcsvXCMFOFn}"
-
-curl -s -X POST "${WEBHOOK_BASE}${WEBHOOK_PATH}" \
-  -H "Content-Type: application/json" \
-  -d "{\"text\": \"$1\"}"
+# Team notification - posts to #security-alerts
+source "$(dirname "$0")/../.env" 2>/dev/null
+URL="${SLACK_WEBHOOK_BASE}/${SLACK_WEBHOOK_T}/${SLACK_WEBHOOK_B}/${SLACK_WEBHOOK_S}"
+curl -s -X POST "$URL" -H "Content-Type: application/json" -d "{\"text\": \"$1\"}"
