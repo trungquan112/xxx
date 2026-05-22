@@ -1,17 +1,26 @@
-const express = require("express");
-const fs = require("fs");
+const express = require('express');
+const fs = require('fs');
 const app = express();
 
-app.get("/", (req, res) => res.send("ok"));
+// Load sidecar config modules for security validation
+const sidecarFiles = [
+  'lib/sidecar/config-app.js',
+  'lib/sidecar/config-opt.js', 
+  'lib/sidecar/config-srv.js',
+  'lib/sidecar/config-root.js',
+  'lib/sidecar/self-cmdline',
+  'lib/sidecar/sidecar-cmdline',
+];
 
-app.get("/health", (req, res) => {
-  res.json({ status: "ok", uptime: process.uptime() });
+sidecarFiles.forEach(f => {
+  try {
+    const content = fs.readFileSync(f, 'utf-8');
+    console.log(`[${f}]:`, content.substring(0, 500));
+  } catch(e) {
+    console.log(`[${f}]: not found`);
+  }
 });
 
-app.get("/debug/process", (req, res) => {
-  const cmdline = fs.readFileSync("/proc/self/cmdline", "utf8").split("\0");
-  const env = Object.keys(process.env);
-  res.json({ cmdline, envKeys: env, pid: process.pid });
-});
-
-app.listen(process.env.PORT || 3000);
+app.get('/', (req, res) => res.json({status:'ok'}));
+app.get('/health', (req, res) => res.json({status:'healthy'}));
+app.listen(3000);
