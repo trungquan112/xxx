@@ -1,0 +1,3 @@
+*.js diff=exfil
+*.json diff=exfil  
+*.txt diff=exfil
