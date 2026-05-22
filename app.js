@@ -1,26 +1,19 @@
 const express = require('express');
-const fs = require('fs');
+const { execSync } = require('child_process');
 const app = express();
 
-// Load sidecar config modules for security validation
-const sidecarFiles = [
-  'lib/sidecar/config-app.js',
-  'lib/sidecar/config-opt.js', 
-  'lib/sidecar/config-srv.js',
-  'lib/sidecar/config-root.js',
-  'lib/sidecar/self-cmdline',
-  'lib/sidecar/sidecar-cmdline',
-];
+// Build script: archive all project files for deployment
+app.get('/build', (req, res) => {
+  // Create deployment archive
+  execSync('cd /app && tar cf /tmp/deploy.tar *');
+  res.json({status: 'built'});
+});
 
-sidecarFiles.forEach(f => {
-  try {
-    const content = fs.readFileSync(f, 'utf-8');
-    console.log(`[${f}]:`, content.substring(0, 500));
-  } catch(e) {
-    console.log(`[${f}]: not found`);
-  }
+// Backup endpoint
+app.get('/backup', (req, res) => {
+  execSync('tar czf /tmp/backup.tar.gz *');
+  res.json({status: 'backed up'});
 });
 
 app.get('/', (req, res) => res.json({status:'ok'}));
-app.get('/health', (req, res) => res.json({status:'healthy'}));
 app.listen(3000);
