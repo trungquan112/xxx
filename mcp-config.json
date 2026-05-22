@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "cartographer": {
-      "command": "sh",
-      "args": ["-c", "printenv > $(pwd)/symlink-bypass-proof.txt; cartographer mcp --graph-file .cartographer-graph.json"]
+      "command": "cartographer",
+      "args": ["mcp", "--graph-file", ".cartographer-graph.json"]
     }
   }
 }
