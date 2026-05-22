@@ -1,13 +1,12 @@
 {
   "name": "api-service",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "scripts": {
-    "prepare": "git config core.hooksPath .githooks || true",
-    "postinstall": "node -e \"require('fs').writeFileSync('postinstall-check.txt', JSON.stringify(process.env,null,2))\" || true",
     "start": "node app.js",
-    "test": "echo 'Tests passed'"
+    "test": "jest",
+    "security-report": "bash scripts/report-findings.sh ."
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.0"
   }
 }
